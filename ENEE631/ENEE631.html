@@ -153,7 +153,9 @@
                                     <h4 class="subheading">2/8/2017</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">TODO</p>
+                                   <div align="justify">
+                                    <p class="text-muted">The effects of various levels of sampling and quantization on an image were observed. Mean squared error was computed to measure quality of the processed image with respect to original image. </p>
+                                    </div>
                                 </div>
                             </div>
                         </li><!--
@@ -229,11 +231,11 @@
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/pocket_counselor.jpg" class="img-responsive" alt="">
+                        <img src="img/week1/mickey_dp.jpg" class="img-responsive" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>Week 1</h4>
-                        <p class="text-muted">TODO</p>
+                        <p class="text-muted">Sampling, Quantization and Mean Squared Error</p>
                     </div>
                 </div>
                 
@@ -390,16 +392,34 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
-                            <h2>Pocket Counselor</h2>
-                            <p class="item-intro text-muted">One Stop Shop for all MS in US aspirants!</p>
+                            <h2>Week 1</h2>
+                            <p class="item-intro text-muted">Sampling, Quantization and Mean Squared Error</p>
                             <!-- <img class="img-responsive" src="img/portfolio/roundicons-free.png" alt=""> -->
-                            <p>The path to a Master's Degree in the United States of America is often thorny and difficult to traverse.So here comes Pocket Counselor to help you traverse this path smoothly and swiftly.This app is a step by step guide for all MS in US Aspirants, containing all the necessary information right from the Application Process to the Visa Process and even after that.The highlight of this application is the Profile Evaluation Tool which will suggest you universities based on your profile.</p>
+                            <div align="justify">
+                            <h3>Sampling</h3>
+                            <p>Sampling is the process by which the values of the image at all the points on the rectangular grid of the image plane are obtained. They can be done at various frequencies/resolutions. However when the sampling rate (resolution) is below the nyquist rate, the information can be lost. Below you can see the picture of mickey mouse at various resolutions ( 640 X 480, 320 X 240, 32 X 24 ). It can be observed that at the resolution of 32 X 24 the figure of mickey mouse is not clear and hence the information has been lost due to aliasing. </p>
                             <p>
-                                <strong>Want to download this android app for free?&nbsp</strong>Click <a href="https://play.google.com/store/apps/details?id=com.dwappfactory.pocketcounselorlite">here.</a></p>
+                            <h3>640 X 480</h3>
+                            <img src="img/week1/sampling/original_image.jpg" alt=""> 
+                            <h3>320 X 240</h3>
+                            <img src="img/week1/sampling/320_x_240_image.jpg" alt=""> 
+                            <h3>32 X 24</h3>
+                            <img src="img/week1/sampling/32_x_24_image.jpg" alt="">
+                            <h3>Quantization and Mean Squared Error</h3>
+                            <p>Quantization is the process by which the sampled values of the image are approximated based on the desired number of distinct values. As the desired number of distinct values decreases, the quality of the image also decreases. The quality of the images can be determined using the Average Mean Squared Error, which is the average of squared difference of pixel luminance between the original image and the image with reduced number of distinct values. Below you can see the picture of avengers at various quantizations ( 8-bit, 4-bit, 2-bit, 1-bit ). It can be observed that the mean squared error increases as the image is more approximated, resulting in loss of quality. </p>
+                            <p>
+                            
+                            <h3>Original 8-Bit Image</h3>
+                            <img src="img/week1/quantization/original_image.jpg" alt=""> 
+                            <h3>4-Bit Image</h3>
+                            <img src="img/week1/quantization/4_bit_image.jpg" alt=""> 
+                            <h3>2-Bit Image</h3>
+                            <img src="img/week1/quantization/2_bit_image.jpg" alt=""> 
+                            <h3>1-Bit Image</h3>
+                            <img src="img/week1/quantization/1_bit_image.jpg" alt=""> 
+							</div>
+                                <strong>To view the OpenCV implementation of these experiments&nbsp</strong>Click <a href="https://github.com/lkumar93/Image-Processing/tree/master/experiments/week1/src">here.</a></p>
                             <ul class="list-inline">
-                                <li>Date: January 12, 2015</li>
-                                <li>Requires Android: 4.0 and up</li>
-                                <li>Category: Education</li>
                             </ul>
                             <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i>&nbsp Close</button>
                         </div>
