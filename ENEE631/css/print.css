@@ -1,0 +1,43 @@
+#about{
+	display: none
+}
+
+#team{
+	display: none
+}
+
+#portfolio{
+	display: none
+}
+
+#explore_button{
+	display: none
+}
+
+/* Don't show linked images  */
+a[href^="http://"] {color:#000; }
+a[href$=".jpg"]:after, a[href$=".jpeg"]:after, a[href$=".gif"]:after, a[href$=".png"]:after { content: " (" attr(href) ") "; display:none; }
+
+/* Don't show links that are fragment identifiers, or use the `javascript:` pseudo protocol .. taken from html5boilerplate */
+a[href^="#"]:after, a[href^="javascript:"]:after {content: "";}
+
+pre { font: 12pt Courier, monospace; padding:0px ; margin: 0px ; page-break-after: avoid; overflow: visible ; page-break-before: avoid; page-break-inside:auto} 
+.section-heading {  padding-top: 60%;  page-break-before: always}
+.section-subheading { page-break-after: auto}
+
+h2 {page-break-before: always}
+header {height: 100% ; width: 100% ; padding-top: 30% ; page-break-after: avoid }
+
+h3, h4, h5 { page-break-inside: avoid ; text-transform: none !important;}
+
+.container {
+     width: 100%;
+     padding-left: 25px;
+	 padding-right: 25px;
+	 padding-top: 0px;
+	padding-bottom: 0px;
+    }
+ 
+
+
+img { width: 60%; height: auto ; overflow: visible; margin-left: auto; margin-right: auto ; padding: 0 ; display: block}
