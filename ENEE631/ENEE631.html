@@ -141,12 +141,30 @@
                                 </div>
                             </div>
                         </li>
+                                                <li>
+   							<div class="timeline-image">
+                                <h4>
+                                    <br><font size="+6"> III </font> 
+                                    <br></h4>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Week 3</h4>
+                                    <h4 class="subheading">02/22/2017</h4>
+                                </div>
+                                <div class="timeline-body">
+                                   <div align="justify">
+                                    <p class="text-muted">Various spatial filters were applied to the images and the results were analyzed. The images were sharpened in order to enhance the edges. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                         <li>
-                            <div class="timeline-image">
+                            <div class="timeline-inverted">
                                 <div class="timeline-image">
                                 <h4>Next Update
                                     <br> On
-                                    <br>2/22/17</h4>
+                                    <br>3/1/17</h4>
                             </div>
                             </div>
 
@@ -193,6 +211,20 @@
                         <p class="text-muted">Point Operations and Histogram Equalization</p>
                     </div>
                 </div>
+                            
+                 <div class="col-md-4 col-sm-6 portfolio-item">
+
+                    <a href="#week3" class="page-scroll " >
+                    
+                        <div class="portfolio-hover">
+                        </div>
+                        <img src="img/week3/balloons_dp.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Week 3</h4>
+                        <p class="text-muted">Spatial Filters and Sharpening</p>
+                    </div>
+                </div>
                              
             </div>
         </div>
@@ -234,8 +266,9 @@
 							<div style="margin-bottom:50px"></div>
                             <h3>Code
                             <pre><code class="language-c++">
-#include "stdio.h"
-#include "opencv2/opencv.hpp"
+#include < stdio.h >
+#include < opencv2/opencv.hpp >
+
 
 using namespace cv;
 
@@ -310,8 +343,9 @@ int main(int argc, char** argv )
                            	<div style="margin-bottom:50px"></div>
                            	 <h3>Code
                             <pre><code class="language-c++">
-#include "stdio.h"
-#include "opencv2/opencv.hpp"
+#include < stdio.h >
+#include < opencv2/opencv.hpp >
+#include < math.h >
 
 using namespace cv;
 
@@ -480,9 +514,9 @@ int main(int argc, char** argv )
                             <h3>Code
                             <div style="margin-bottom:5px"></div>
                             <pre><code class="language-c++">
-#include "stdio.h"
-#include "opencv2/opencv.hpp"
-#include "math.h"
+#include < stdio.h >
+#include < opencv2/opencv.hpp >
+#include < math.h >
 
 #define R_WEIGHT 0.2989
 #define G_WEIGHT 0.5870
@@ -625,8 +659,9 @@ int main(int argc, char** argv )
                            	<div style="margin-bottom:50px"></div>
                            	 <h3>Code
                             <pre><code class="language-c++">
-#include "stdio.h"
-#include "opencv2/opencv.hpp"
+
+#include < opencv2/opencv.hpp >
+#include < stdio.h >
 
 #define R_WEIGHT 0.2989
 #define G_WEIGHT 0.5870
@@ -815,6 +850,484 @@ int main(int argc, char** argv )
 
     return 0;
 }
+</code></pre></h3>
+</p>
+                            <ul class="list-inline">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        
+        
+    </section>
+    
+        <section id="week3" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">WEEK 3</h2>
+                    <h3 class="section-subheading text-muted">To view the implementation,&nbsp Click <a href="https://github.com/lkumar93/Image-Processing/tree/master/experiments/week3/">here</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <div align="justify">
+                            <h2>Spatial Image Filters</h2>
+                            <div id="25_padding" style="margin-bottom:25px"></div>
+                            <p>These filters are basically used for enhancing the images by removing the noise. This process can also be called as smoothing. Spatial filters take into account only the distance between neighbouring pixels and not the value of the pixels. These filters can either be linear (like Mean Filters, Gaussian Filters) or non-linear (like Median Filters). Linear filters/kernels are usually applied to an image using convolution. The results of application of spatial filters, with kernel size of 7 X 7, to noisy images are shown below. </p>
+                            <p>
+                            <div style="margin-bottom:50px"></div>
+                            <h3>Results</h3>	
+                            <div style="margin-bottom:25px"></div>
+							<h4>Original Image <div style="margin-bottom:25px"></div>
+                            <img src="img/week3/filter/grayscale_image.jpg" alt=""></h4>                                            
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Mean Filtered Image
+                            <p>An averaging kernel is convolved with the image. Although the noise has reduced, the resulting image is not good enough.
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week3/filter/mean_filtered_image.jpg" alt=""></p> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Gaussian Filtered Image
+                            <p> The gaussian kernel gives more importance to closer pixels than distant ones. When such a filter is convolved with images with salt and pepper noise, the results are not good. 
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week3/filter/gaussian_filtered_image.jpg" alt=""></p></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Median Filtered Image
+                            <p>This is a non linear filter, which takes into the account only the median of the neighbouring pixels. As seen below, this filter has almost perfectly restored the noisy image.
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week3/filter/median_filtered_image.jpg" alt=""></p> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h3>Code
+                            <pre><code class="language-c++">
+#include < iostream >
+#include < opencv2/opencv.hpp >
+#include < math.h >
+#include < stdlib.h >
+
+#define PI 3.14159
+#define R_WEIGHT 0.2989
+#define G_WEIGHT 0.5870
+#define B_WEIGHT 0.1140
+
+using namespace cv;
+
+void swap(int & a1,int & a2)
+{
+	a1 = a1 + a2;
+	a2 = a1 - a2;
+	a1 = a1 - a2;
+}
+
+void merge(int A[ ] , int start, int mid, int end) {
+
+   //stores the starting position of both parts in temporary variables.
+    int p = start ,q = mid+1;
+
+    int Arr[end-start+1] , k=0;
+
+    for(int i = start ;i <= end ;i++) {
+        if(p > mid)      //checks if first part comes to an end or not .
+           Arr[ k++ ] = A[ q++] ;
+
+       else if ( q > end)   //checks if second part comes to an end or not
+           Arr[ k++ ] = A[ p++ ];
+
+       else if( A[ p ] < A[ q ])     //checks which part has smaller element.
+          Arr[ k++ ] = A[ p++ ];
+
+       else
+          Arr[ k++ ] = A[ q++];
+   }
+   for (int p=0 ; p< k ;p ++) {
+     /* Now the real array has elements in sorted manner including both 
+            parts.*/
+       A[ start++ ] = Arr[ p ] ;                          
+   }
+}
+
+void merge_sort (int A[ ] , int start , int end ) {
+    if( start < end ) {
+       int mid = (start + end ) / 2 ;           // defines the current array in 2 parts .
+       merge_sort (A, start , mid ) ;                 // sort the 1st part of array .
+       merge_sort (A,mid+1 , end ) ;              // sort the 2nd part of array.
+
+     // merge the both parts by comparing elements of both the parts.
+        merge(A,start , mid , end );   
+   }                    
+}
+
+
+Mat convert_to_grayscale(const Mat& input_image)
+{
+
+    Mat rgb_image = input_image.clone();
+    Mat grayscale_image = cv::Mat(rgb_image.rows, rgb_image.cols, CV_8UC1, cv::Scalar(0, 0, 0));
+
+    for(int j = 0; j < grayscale_image.rows; j++)
+        for(int i = 0; i < grayscale_image.cols; i++)
+        {
+            Vec3b rgb_value = rgb_image.at<Vec3b>(j, i);
+	    grayscale_image.at<uchar>(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
+        }
+
+    return grayscale_image;
+
+}
+
+Mat image_padding(const Mat& input_image, int offset)
+{
+
+   Mat padded_image = Mat(input_image.rows+2*offset, input_image.cols+2*offset, CV_8UC1, 0.0);
+
+   for(int j = 0; j < input_image.rows ; j++)
+        for(int i = 0; i < input_image.cols; i++)
+        {
+	    padded_image.at<uchar>(j+offset,i+offset) = input_image.at<uchar>(j,i);
+        }
+
+    return padded_image;
+
+}
+
+Mat image_depadding(const Mat& input_image, int offset)
+{
+
+   Mat depadded_image = Mat(input_image.rows-2*offset, input_image.cols-2*offset, CV_8UC1, 0.0);
+
+   for(int j = 0; j < input_image.rows-2*offset ; j++)
+        for(int i = 0; i < input_image.cols-2*offset; i++)
+        {
+	    depadded_image.at<uchar>(j,i) = input_image.at<uchar>(j+offset,i+offset);
+        }
+
+    return depadded_image;
+
+}
+
+Mat convolve(const Mat& input_image, const Mat& kernel)
+{
+  
+   int kernel_size = kernel.rows;
+
+   int offset;
+
+   if(kernel_size % 2 != 0)
+   {
+	offset = (kernel_size+1)/2 - 1;
+   }
+   else
+   {
+	offset = (kernel_size)/2 - 1;
+   }
+
+  Mat padded_image = image_padding(input_image, offset);
+
+  Mat flipped_kernel = Mat(kernel.rows, kernel.cols, CV_32F, 0.0);
+
+   for(int m = 0; m < kernel_size ; m++)
+	for(int n = 0; n < kernel_size; n++)
+	{
+		flipped_kernel.at<float>(m,n) = kernel.at<float>(kernel_size-m-1,kernel_size-n-1);
+
+	}
+
+  Mat convolved_image = Mat(padded_image.rows, padded_image.cols, CV_8UC1, 0.0);
+		
+
+  float value = 0.0;
+  for(int j = offset; j < padded_image.rows - offset ; j++)
+       for(int i = offset; i < padded_image.cols - offset; i++)
+       {		   
+	   for(int m = 0; m < kernel_size ; m++)
+		for(int n = 0; n < kernel_size; n++)
+		{
+		    value += (padded_image.at<uchar>(j+m-offset,i+n-offset))*flipped_kernel.at<float>(m,n);		    
+		}
+
+	    convolved_image.at<uchar>(j,i)  = (int)value;
+	    value = 0;	 
+       }
+
+  Mat depadded_image = image_depadding(convolved_image, offset);
+  
+  return depadded_image;
+}
+
+Mat gaussian_filter(const Mat& input_image, int kernel_size, float sigma)
+{
+
+   Mat kernel = Mat(kernel_size, kernel_size, CV_32F, 0.0);
+   int k;
+
+   if(kernel_size % 2 != 0)
+   {
+	k = (kernel_size-1)/2;
+   }
+   else
+   {
+	k = (kernel_size)/2;
+   }
+
+   float value = 0.0,value2 = 0.0;
+
+// Create the Gaussian Kernel
+   for(int j = 0; j < kernel_size ; j++)
+       for(int i = 0; i < kernel_size; i++)
+       {
+	    kernel.at<float>(j,i) = (float)( 1.0 /( 2.0*PI*pow(sigma,2) ) ) * exp(-1.0* ( pow(i+1-(k+1),2) + pow(j+1-(k+1),2) ) / ( 2.0 * pow(sigma,2) ) ) ;
+	    value += kernel.at<float>(j,i);
+       }
+
+ // Normalize kernel , so that the sum of all elements in the kernel is 1
+   for(int j = 0; j < kernel_size ; j++)
+       for(int i = 0; i < kernel_size; i++)
+       {
+	    kernel.at<float>(j,i) = kernel.at<float>(j,i)/value ;
+       }
+
+   Mat filtered_image = convolve(input_image, kernel);
+
+   return filtered_image;
+}
+
+Mat mean_filter(const Mat& input_image, int kernel_size)
+{
+
+   Mat kernel = Mat(kernel_size, kernel_size, CV_32F, 0.0);
+
+   for(int j = 0; j < kernel_size ; j++)
+       for(int i = 0; i < kernel_size; i++)
+       {
+	    kernel.at<float>(j,i) = ( 1.0 / pow(kernel_size,2)) ;
+       }
+
+
+   Mat filtered_image = convolve(input_image, kernel);  
+
+   return filtered_image;
+}
+
+
+Mat median_filter(const Mat& input_image, int kernel_size)
+{
+   int offset;
+
+   if(kernel_size % 2 != 0)
+   {
+	offset = (kernel_size+1)/2 - 1;
+   }
+   else
+   {
+	offset = (kernel_size)/2 - 1;
+   }
+
+  Mat padded_image = image_padding(input_image, offset);
+
+  Mat filtered_image = Mat(padded_image.rows, padded_image.cols, CV_8UC1, 0.0);
+
+  int size = kernel_size*kernel_size;
+  int neighborhood[size];
+
+  int k;
+
+  int mid ;
+
+   if(kernel_size % 2 != 0)
+   { 
+	mid = (size+1)/2-1;
+   }
+   else
+   {
+	mid = (size)/2-1;
+   } 		
+
+  float value = 0.0;
+  for(int j = offset; j < padded_image.rows - offset ; j++)
+       for(int i = offset; i < padded_image.cols - offset; i++)
+       {
+	   k = 0;	
+
+	   for(int m = 0; m < kernel_size ; m++)
+		for(int n = 0; n < kernel_size; n++)
+		{	
+		    neighborhood[k] = padded_image.at<uchar>(j+m-offset,i+n-offset) ;
+		    k++;
+		}
+
+	    merge_sort(neighborhood,0,size-1);
+
+            filtered_image.at<uchar>(j,i)  = neighborhood[mid]; 
+       }
+
+  Mat depadded_image = image_depadding(filtered_image, offset);
+  
+  return depadded_image;
+
+}
+
+int main(int argc, char** argv )
+{
+    Mat image, grayscale_image, gaussian_filtered_image, mean_filtered_image, median_filtered_image;
+
+    image = imread( "../images/balloons.png", 1 );
+
+    if ( !image.data )
+    {
+        printf("No image data \n");
+        return -1;
+    }
+
+    grayscale_image = convert_to_grayscale(image);
+    gaussian_filtered_image = gaussian_filter(grayscale_image,7,1.4);
+    mean_filtered_image = mean_filter(grayscale_image,7);
+    median_filtered_image = median_filter(grayscale_image,7);
+
+    namedWindow("Original Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/filter/grayscale_image.jpg", grayscale_image );
+    imshow("Original Image", grayscale_image);
+
+    namedWindow("Gaussian Filtered Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/filter/gaussian_filtered_image.jpg", gaussian_filtered_image );
+    imshow("Gaussian Filtered Image", gaussian_filtered_image );
+
+    namedWindow("Mean Filtered Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/filter/mean_filtered_image.jpg", mean_filtered_image );
+    imshow("Mean Filtered Image", mean_filtered_image);
+
+    namedWindow("Median Filtered Image2", WINDOW_AUTOSIZE);
+    imwrite( "../results/filter/median_filtered_image.jpg", median_filtered_image );
+    imshow("Median Filtered Image", median_filtered_image);
+
+    waitKey(0);
+
+    return 0;
+}
+</code></pre></h3>
+								<br></br><br></br>
+                            <h2>Sharpening</h2>
+                            
+                            <div style="margin-bottom:25px"></div>
+                            <p>Sharpening is the process by which the edges of an image are enhanced. It is basically a 3 step process. The first step involves low pass filtering an image using either an averaging or gaussian filter. Then the resultant image is subtracted from the input image, which is equivalent to high pass filtering an image. A proportion of this high pass filtered image , as determined by alpha, is added to the input image. This results in a sharpened image. </p>
+                            <p>
+                            <div style="margin-bottom:50px"></div>
+                            <h3>Results</h3>
+                            <div style="margin-bottom:25px"></div>
+                            <h4>Original Image
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week3/sharpening/grayscale_image.jpg" alt=""> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Low Pass Filtered Image
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week3/sharpening/low_pass_filtered_image.jpg" alt=""> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>High Pass Filtered Image
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week3/sharpening/high_pass_filtered_image.jpg" alt=""> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Sharpened Image
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week3/sharpening/sharpened_image.jpg" alt=""> </h4>
+							</div>
+
+                           	<div style="margin-bottom:50px"></div>
+                           	 <h3>Code
+                            <pre><code class="language-c++">
+#include < iostream >
+#include < opencv2/opencv.hpp >
+#include < math.h >
+#include < stdlib.h >
+
+#define PI 3.14159
+#define R_WEIGHT 0.2989
+#define G_WEIGHT 0.5870
+#define B_WEIGHT 0.1140
+
+using namespace cv;
+
+Mat convert_to_grayscale(const Mat& input_image)
+{
+
+    Mat rgb_image = input_image.clone();
+    Mat grayscale_image = cv::Mat(rgb_image.rows, rgb_image.cols, CV_8UC1, cv::Scalar(0, 0, 0));
+
+    for(int j = 0; j < grayscale_image.rows; j++)
+        for(int i = 0; i < grayscale_image.cols; i++)
+        {
+            Vec3b rgb_value = rgb_image.at<Vec3b>(j, i);
+	    grayscale_image.at<uchar>(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
+        }
+
+    return grayscale_image;
+
+}
+
+Mat sharpen(const Mat& input_image, int kernel_size, float alpha)
+{
+  Mat low_pass_filtered_image, high_pass_filtered_image, sharpened_image;
+  low_pass_filtered_image = input_image.clone();
+
+  //Low pass filter the image using Gaussian
+  blur( input_image, low_pass_filtered_image, Size( kernel_size, kernel_size ));
+
+  high_pass_filtered_image = input_image.clone();
+  sharpened_image = input_image.clone();  
+
+  for(int j = 0; j < input_image.rows; j++)
+	for(int i = 0; i < input_image.cols; i++)
+	{
+
+	    //High pass filter the image by subtracting input_image from low pass filtered image and saturate the output
+	    high_pass_filtered_image.at<uchar>(j,i) = saturate_cast<uchar>(input_image.at<uchar>(j,i) - low_pass_filtered_image.at<uchar>(j,i));
+
+	    //Sharpen the image by doing weighted addition of the high pass filtered image to the input image and saturate the output
+	    sharpened_image.at<uchar>(j,i) =  saturate_cast<uchar>(input_image.at<uchar>(j,i) + alpha*high_pass_filtered_image.at<uchar>(j,i));
+		
+	}
+
+  namedWindow("HPF Image", WINDOW_AUTOSIZE);
+  imwrite( "../results/sharpening/high_pass_filtered_image.jpg", high_pass_filtered_image);
+  imshow("HPF Image", high_pass_filtered_image);
+
+  namedWindow("LPF Image", WINDOW_AUTOSIZE);
+  imwrite( "../results/sharpening/low_pass_filtered_image.jpg", low_pass_filtered_image);
+  imshow("LPF Image", low_pass_filtered_image);
+  
+  return sharpened_image;
+
+}
+
+int main(int argc, char** argv )
+{
+    Mat image, grayscale_image, sharpened_image, sharpened_image2, sharpened_image3;
+
+    image = imread( "../images/moon.png", 1 );
+
+    if ( !image.data )
+    {
+        printf("No image data \n");
+        return -1;
+    }
+
+    grayscale_image = convert_to_grayscale(image);
+    sharpened_image = sharpen(grayscale_image,9,0.5);
+
+    namedWindow("Original Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/sharpening/grayscale_image.jpg", grayscale_image );
+    imshow("Original Image", grayscale_image);
+
+    namedWindow("Sharpened Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/sharpening/sharpened_image.jpg", sharpened_image );
+    imshow("Sharpened Image", sharpened_image);
+
+    waitKey(0);
+
+    return 0;
+}
+
 </code></pre></h3>
 </p>
                             <ul class="list-inline">
