@@ -236,13 +236,32 @@
                             </div>
                         </li>
                         
+                         <li class="timeline-inverted">
+   							<div class="timeline-image">
+                                <h4>
+                                    <br><font size="+6"> VIII </font> 
+                                    <br></h4>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Week 8</h4>
+                                    <h4 class="subheading">04/05/2017</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <div align="justify">
+                                    	<p class="text-muted"> Block Based Discrete Cosine Transforms were used to analyze images for use in compression. Blurred Images were partially restored using pseudo inverse filters.</p>
+									</div>
+                                </div>
+                            </div>
+                        </li>
+                        
                         
                         <li>
-                            <div class="timeline-inverted">
+                            <div class="timeline-image">
                                 <div class="timeline-image">
                                 <h4>Next Update
                                     <br> On
-                                    <br>4/5/17</h4>
+                                    <br>4/12/17</h4>
                             </div>
                             </div>
 
@@ -363,6 +382,20 @@
                     <div class="portfolio-caption">
                         <h4>Week 7</h4>
                         <p class="text-muted">Compression</p>
+                    </div>
+                </div>
+                                           
+                <div class="col-md-4 col-sm-6 portfolio-item">
+
+                    <a href="#week8" class="page-scroll " >
+                    
+                        <div class="portfolio-hover">
+                        </div>
+                        <img src="img/week8/dct_dp.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Week 8</h4>
+                        <p class="text-muted">Discrete Cosine Transforms</p>
                     </div>
                 </div>
                                             
@@ -3280,6 +3313,228 @@ int main ()
                     </div>
                 </div>
         </section>
+        
+        
+        
+        
+        
+       <section id="week8" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">WEEK 8</h2>
+                    <h3 class="section-subheading text-muted">To view the implementation,&nbsp Click <a href="https://github.com/lkumar93/Image-Processing/tree/master/experiments/week8/">here</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <div align="justify">
+                            <h2>Image Deblurring </h2>
+                            <div id="25_padding" style="margin-bottom:25px"></div>
+                            <p>From the given images flower.tif and flower1.tif , the blurring function was extracted in the frequency domain by dividing the two complex images of the blurred and the original image respectively. Using this blurring function in frequency domain and taking pseudo-inverse of this and multiplying it with the blurred image in frequency domain will restore it and then inverse dft can be performed to view it the spatial domain. However there might be a few artifacts due to loss in certain information. Based on the threshold level, the details in the restored image can vary. Alternatively, the blurred image was sharpened using unsharp mask technique. It looks slightly better than the inverse filter. With regards to the image caterpillar.jpg, I tried to guess the impulse function and tried various kernels like gaussian kernel, averaging kernel. However it didn't restore the image. In this case Blind Deconvolution has to be done by using a cost function by which various kernels and original images are guessed and the best ones are extracted. Due to lack of time , I was not able to implement this algorithm. Classical sharpening technique along with a median filter enhanced the image a bit. </p>
+                            <p>
+                            <div style="margin-bottom:50px"></div>
+                            <h3>Results</h3>	
+                            <div style="margin-bottom:25px"></div>
+							<h4>Original Image 1 <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/deconvolution/original_flower.jpg" alt=""></h4>                                            
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Blurred Image
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week8/deconvolution/blurred_flower.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                             <h4>Pseudo Inverse Filtered Image With Threshold 0.05
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week8/deconvolution/restored_flower_thresh_0.05.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Pseudo Inverse Filtered Image With Threshold 0.15
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week8/deconvolution/restored_flower_thresh_0.15.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4> Sharpened Image
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week8/deconvolution/sharpened_image.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4> Image 2
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week8/deconvolution/caterpillar.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Pseudo Inverse Filtered Image 2
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week8/deconvolution/restored_caterpillar_thresh_0.1.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Sharpened and Median Filtered Image
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week8/deconvolution/sharpened_caterpillar.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>                        
+							<br></br><br></br>
+                            <h2>Discrete Cosine Transforms
+                            </h2>
+                            
+                            <div style="margin-bottom:25px"></div>
+                            <p>Discrete Cosine Transforms transforms image into frequency domain comprised of cosine waves. Hence the frequency domain image only has a real part. It is very useful for compression due to its energy compaction property. On the given images, DCT was used for compression. Then the initial values of each block was accepted and rest of them were masked. The masked image is then quantized using JPEG's standard quantization table. This quantized image is then encoded using Run Length Coding which is a lossless encoding technique. It was observed that with increase in block size, the compression ratio and the quality of the image increased as indicated by the PSNR. Most of the information is available towards the starting point of each block. As the size of the block increases, the variance reduces and the valuable information is more concentrated towards the starting point.  </p>
+                            <p>
+                            <div style="margin-bottom:50px"></div>
+                            <h3>Results</h3>
+                            <div style="margin-bottom:25px"></div>
+                            <h4>Image 1
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/baboon.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>DCT Basis 8 X 8
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/baboonC_8_8.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                             <h4>DCT Basis 16 X 16
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/baboonC_16_16.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>DCT Basis 32 X 32
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/baboonC_32_32.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Reconstructed Image 8 X 8
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/baboonC_8_8_reconstructed.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                             <h4>Reconstructed Image 16 X 16
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/baboonC_16_16_reconstructed.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4> Reconstructed Image 32 X 32
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/baboonC_32_32_reconstructed.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Image 2
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/moon.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>DCT Basis 8 X 8
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/moon_8_8.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                             <h4>DCT Basis 16 X 16
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/moon_16_16.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>DCT Basis 32 X 32
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/moon_32_32.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Reconstructed Image 8 X 8
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/moon_8_8_reconstructed.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                             <h4>Reconstructed Image 16 X 16
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/moon_16_16_reconstructed.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4> Reconstructed Image 32 X 32
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week8/dct/moon_32_32_reconstructed.jpg" alt=""> </h4></h4>
+                            <div style="margin-bottom:50px"></div>
+                            
+                            
+                           	 <h3>Code
+                            <pre><code class="language-c++">
+ clear;
+ close all;
+ I = imread('moon.tif');
+ %I = rgb2gray(I);
+ I = im2double(I);
+ OriginalImage = I;
+ [k,l] = size(I);
+ I = imresize(I, [512 512]);
+ n = 8
+ T = dctmtx(n);
+ dct = @(block_struct) T * block_struct.data * T';
+ B = blockproc(I,[n n],dct);
+ B2 = B;
+ c = 10;
+ [M,N]=size(B);
+  for x = 1:n
+    for y = 1:n
+                   
+        if x < (n+1)/2 && y < (n+1)/2
+             mask(x,y) = 1; 
+        else
+             mask(x,y) = 0; 
+        end
+    end
+ end         
+
+ selection_matrix = repmat(mask,512/n,512/n);
+ B2 = B2.*selection_matrix;
+
+ B2 = imresize(B2,[512 512]);
+ 
+% JPEG Standard Quantization Array
+Quantz=[16 11 10 16  24  40  51  61
+         12 12 14 19  26  58  60  55
+         14 13 16 24  40  57  69  56
+         14 17 22 29  51  87  80  62
+         18 22 37 56  68 109 103  77
+         24 35 55 64  81 104 113  92
+         49 64 78 87 103 121 120 101
+         72 92 95 98 112 100 103 99 ];
+     
+prev_val = -1;
+count = 0;
+output_size = 0;
+
+
+ResizedQuantizer = repmat(uint8(ceil(double(Quantz)./90000)), 512/8 , 512/8);
+ 
+QuantizedImage = round(B2./double(ResizedQuantizer));
+
+ for x = 1:512
+    for y = 1:512
+       if prev_val ~= QuantizedImage(x,y)
+           if count ~= 0
+               output_size = output_size + 2;
+           end
+           count = 1;
+       else
+           count = count +1;
+       end
+       prev_val = QuantizedImage(x,y);
+    end
+ end     
+output_size = output_size +2
+compression_ratio = (512*512)/output_size
+DeQuantizedImage = QuantizedImage.*double(ResizedQuantizer);
+ 
+invdct = @(block_struct) T' * block_struct.data * T;
+I2 = blockproc(DeQuantizedImage,[n n],invdct);
+ReconstructedImage = imresize(I2,[k l]);
+error = OriginalImage - ReconstructedImage;
+MSE = sum(sum(error .* error))/(k*l);
+PSNR = 20*log10(max(max(max(OriginalImage)))) - 10*log10(MSE);
+
+textstring = ['N : ' num2str(n) ' X ' num2str(n) ' , Compression Ratio : ' num2str(compression_ratio) ': 1 , PSNR :' num2str(PSNR) ];
+position =  [1 50];
+figure;
+imshow(ReconstructedImage);
+title(textstring);
+figure;
+imshow(OriginalImage);
+
+                            
+</pre></h3>
+</p>
+                            <ul class="list-inline">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+    </section>
+    
+    
+    
      <!-- Team Section -->
     <section id="team" class="bg-light-gray">
 
