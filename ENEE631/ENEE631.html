@@ -258,13 +258,32 @@
                             </div>
                         </li>
                         
+                       <li class="timeline-image">
+   							<div class="timeline-image">
+                                <h4>
+                                    <br><font size="+6"> IX </font> 
+                                    <br></h4>
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>Week 9</h4>
+                                    <h4 class="subheading">04/26/2017</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <div align="justify">
+                                    	<p class="text-muted"> Adaptive Thresholding was implemented and the results were compared with Global Thresholding. Corner features in an image were extracted using Harris Corner Detection method. </p>
+									</div>
+                                </div>
+                            </div>
+                        </li>
+                        
                         
                         <li>
-                            <div class="timeline-image">
+                            <div class="timeline-inverted">
                                 <div class="timeline-image">
                                 <h4>Next Update
                                     <br> On
-                                    <br>4/12/17</h4>
+                                    <br>05/10/17</h4>
                             </div>
                             </div>
 
@@ -399,6 +418,20 @@
                     <div class="portfolio-caption">
                         <h4>Week 8</h4>
                         <p class="text-muted">Discrete Cosine Transforms</p>
+                    </div>
+                </div>
+                                           
+                 <div class="col-md-4 col-sm-6 portfolio-item">
+
+                    <a href="#week9" class="page-scroll " >
+                    
+                        <div class="portfolio-hover">
+                        </div>
+                        <img src="img/week9/thresholding_dp.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Week 9</h4>
+                        <p class="text-muted">Harris Corner Detection and Adaptive Thresholding</p>
                     </div>
                 </div>
                                             
@@ -715,7 +748,7 @@ Mat convert_to_grayscale(const Mat& input_image)
         for(int i = 0; i < grayscale_image.cols; i++)
         {
             Vec3b rgb_value = rgb_image.at<Vec3b>(j, i);
-	    grayscale_image.at<uchar>(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
+	    grayscale_image.at< uchar >(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
         }
 
     return grayscale_image;
@@ -731,7 +764,7 @@ Mat log_transformation(const Mat& input_image)
    for(int j = 0; j < log_image.rows ; j++)
         for(int i = 0; i < log_image.cols; i++)
         {
-	    log_image.at<uchar>(j,i) = TRANSFORMATION_CONSTANT*log(log_image.at<uchar>(j,i)+1);
+	    log_image.at< uchar >(j,i) = TRANSFORMATION_CONSTANT*log(log_image.at< uchar >(j,i)+1);
         }
 
     return log_image;
@@ -745,7 +778,7 @@ Mat inverse_transformation(const Mat& input_image)
    for(int j = 0; j < inverse_image.rows ; j++)
         for(int i = 0; i < inverse_image.cols; i++)
         {
-	    inverse_image.at<uchar>(j,i) = 255 - inverse_image.at<uchar>(j,i);
+	    inverse_image.at< uchar >(j,i) = 255 - inverse_image.at< uchar >(j,i);
         }
 
     return inverse_image;
@@ -759,7 +792,7 @@ Mat gamma_correction(const Mat& input_image)
    for(int j = 0; j < gamma_corrected_image.rows ; j++)
         for(int i = 0; i < gamma_corrected_image.cols; i++)
         {
-	    gamma_corrected_image.at<uchar>(j,i) = pow( gamma_corrected_image.at<uchar>(j,i) , GAMMA );
+	    gamma_corrected_image.at< uchar >(j,i) = pow( gamma_corrected_image.at< uchar >(j,i) , GAMMA );
         }
 
     return gamma_corrected_image;
@@ -857,7 +890,7 @@ Mat convert_to_grayscale(const Mat& input_image)
         for(int i = 0; i < grayscale_image.cols; i++)
         {
             Vec3b rgb_value = rgb_image.at<Vec3b>(j, i);
-	    grayscale_image.at<uchar>(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
+	    grayscale_image.at< uchar >(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
         }
 
     return grayscale_image;
@@ -874,7 +907,7 @@ void compute_histogram(const Mat& input_image, int histogram[])
     for(int j = 0; j < input_image.rows; j++)
         for(int i = 0; i < input_image.cols; i++)
         {
-	    histogram[input_image.at<uchar>(j,i)]++;
+	    histogram[input_image.at< uchar >(j,i)]++;
         }
 
 }
@@ -982,7 +1015,7 @@ Mat equalize_image(const Mat& input_image, int histogram[])
    for(int j = 0; j < equalized_image.rows; j++)
        for(int i = 0; i < equalized_image.cols; i++)
        {
-	    equalized_image.at<uchar>(j,i) = saturate_cast<uchar>(scaled_histogram[equalized_image.at<uchar>(j,i)]);
+	    equalized_image.at< uchar >(j,i) = saturate_cast< uchar >(scaled_histogram[equalized_image.at< uchar >(j,i)]);
        }   
 
   
@@ -1149,7 +1182,7 @@ Mat convert_to_grayscale(const Mat& input_image)
         for(int i = 0; i < grayscale_image.cols; i++)
         {
             Vec3b rgb_value = rgb_image.at<Vec3b>(j, i);
-	    grayscale_image.at<uchar>(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
+	    grayscale_image.at< uchar >(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
         }
 
     return grayscale_image;
@@ -1164,7 +1197,7 @@ Mat image_padding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows ; j++)
         for(int i = 0; i < input_image.cols; i++)
         {
-	    padded_image.at<uchar>(j+offset,i+offset) = input_image.at<uchar>(j,i);
+	    padded_image.at< uchar >(j+offset,i+offset) = input_image.at< uchar >(j,i);
         }
 
     return padded_image;
@@ -1179,7 +1212,7 @@ Mat image_depadding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows-2*offset ; j++)
         for(int i = 0; i < input_image.cols-2*offset; i++)
         {
-	    depadded_image.at<uchar>(j,i) = input_image.at<uchar>(j+offset,i+offset);
+	    depadded_image.at< uchar >(j,i) = input_image.at< uchar >(j+offset,i+offset);
         }
 
     return depadded_image;
@@ -1209,7 +1242,7 @@ Mat convolve(const Mat& input_image, const Mat& kernel)
    for(int m = 0; m < kernel_size ; m++)
 	for(int n = 0; n < kernel_size; n++)
 	{
-		flipped_kernel.at<float>(m,n) = kernel.at<float>(kernel_size-m-1,kernel_size-n-1);
+		flipped_kernel.at< float >(m,n) = kernel.at< float >(kernel_size-m-1,kernel_size-n-1);
 
 	}
 
@@ -1223,10 +1256,10 @@ Mat convolve(const Mat& input_image, const Mat& kernel)
 	   for(int m = 0; m < kernel_size ; m++)
 		for(int n = 0; n < kernel_size; n++)
 		{
-		    value += (padded_image.at<uchar>(j+m-offset,i+n-offset))*flipped_kernel.at<float>(m,n);		    
+		    value += (padded_image.at< uchar >(j+m-offset,i+n-offset))*flipped_kernel.at< float >(m,n);		    
 		}
 
-	    convolved_image.at<uchar>(j,i)  = (int)value;
+	    convolved_image.at< uchar >(j,i)  = (int)value;
 	    value = 0;	 
        }
 
@@ -1256,15 +1289,15 @@ Mat gaussian_filter(const Mat& input_image, int kernel_size, float sigma)
    for(int j = 0; j < kernel_size ; j++)
        for(int i = 0; i < kernel_size; i++)
        {
-	    kernel.at<float>(j,i) = (float)( 1.0 /( 2.0*PI*pow(sigma,2) ) ) * exp(-1.0* ( pow(i+1-(k+1),2) + pow(j+1-(k+1),2) ) / ( 2.0 * pow(sigma,2) ) ) ;
-	    value += kernel.at<float>(j,i);
+	    kernel.at< float >(j,i) = (float)( 1.0 /( 2.0*PI*pow(sigma,2) ) ) * exp(-1.0* ( pow(i+1-(k+1),2) + pow(j+1-(k+1),2) ) / ( 2.0 * pow(sigma,2) ) ) ;
+	    value += kernel.at< float >(j,i);
        }
 
  // Normalize kernel , so that the sum of all elements in the kernel is 1
    for(int j = 0; j < kernel_size ; j++)
        for(int i = 0; i < kernel_size; i++)
        {
-	    kernel.at<float>(j,i) = kernel.at<float>(j,i)/value ;
+	    kernel.at< float >(j,i) = kernel.at< float >(j,i)/value ;
        }
 
    Mat filtered_image = convolve(input_image, kernel);
@@ -1280,7 +1313,7 @@ Mat mean_filter(const Mat& input_image, int kernel_size)
    for(int j = 0; j < kernel_size ; j++)
        for(int i = 0; i < kernel_size; i++)
        {
-	    kernel.at<float>(j,i) = ( 1.0 / pow(kernel_size,2)) ;
+	    kernel.at< float >(j,i) = ( 1.0 / pow(kernel_size,2)) ;
        }
 
 
@@ -1332,13 +1365,13 @@ Mat median_filter(const Mat& input_image, int kernel_size)
 	   for(int m = 0; m < kernel_size ; m++)
 		for(int n = 0; n < kernel_size; n++)
 		{	
-		    neighborhood[k] = padded_image.at<uchar>(j+m-offset,i+n-offset) ;
+		    neighborhood[k] = padded_image.at< uchar >(j+m-offset,i+n-offset) ;
 		    k++;
 		}
 
 	    merge_sort(neighborhood,0,size-1);
 
-            filtered_image.at<uchar>(j,i)  = neighborhood[mid]; 
+            filtered_image.at< uchar >(j,i)  = neighborhood[mid]; 
        }
 
   Mat depadded_image = image_depadding(filtered_image, offset);
@@ -1436,7 +1469,7 @@ Mat convert_to_grayscale(const Mat& input_image)
         for(int i = 0; i < grayscale_image.cols; i++)
         {
             Vec3b rgb_value = rgb_image.at<Vec3b>(j, i);
-	    grayscale_image.at<uchar>(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
+	    grayscale_image.at< uchar >(j,i) = R_WEIGHT*rgb_value[0] + G_WEIGHT*rgb_value[1] + B_WEIGHT*rgb_value[2] ;
         }
 
     return grayscale_image;
@@ -1459,10 +1492,10 @@ Mat sharpen(const Mat& input_image, int kernel_size, float alpha)
 	{
 
 	    //High pass filter the image by subtracting input_image from low pass filtered image and saturate the output
-	    high_pass_filtered_image.at<uchar>(j,i) = saturate_cast<uchar>(input_image.at<uchar>(j,i) - low_pass_filtered_image.at<uchar>(j,i));
+	    high_pass_filtered_image.at< uchar >(j,i) = saturate_cast< uchar >(input_image.at< uchar >(j,i) - low_pass_filtered_image.at< uchar >(j,i));
 
 	    //Sharpen the image by doing weighted addition of the high pass filtered image to the input image and saturate the output
-	    sharpened_image.at<uchar>(j,i) =  saturate_cast<uchar>(input_image.at<uchar>(j,i) + alpha*high_pass_filtered_image.at<uchar>(j,i));
+	    sharpened_image.at< uchar >(j,i) =  saturate_cast< uchar >(input_image.at< uchar >(j,i) + alpha*high_pass_filtered_image.at< uchar >(j,i));
 		
 	}
 
@@ -1579,7 +1612,7 @@ Mat image_padding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows ; j++)
         for(int i = 0; i < input_image.cols; i++)
         {
-	    padded_image.at<uchar>(j+offset,i+offset) = input_image.at<uchar>(j,i);
+	    padded_image.at< uchar >(j+offset,i+offset) = input_image.at< uchar >(j,i);
         }
 
     return padded_image;
@@ -1594,7 +1627,7 @@ Mat image_depadding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows-2*offset ; j++)
         for(int i = 0; i < input_image.cols-2*offset; i++)
         {
-	    depadded_image.at<uchar>(j,i) = input_image.at<uchar>(j+offset,i+offset);
+	    depadded_image.at< uchar >(j,i) = input_image.at< uchar >(j+offset,i+offset);
         }
 
     return depadded_image;
@@ -1628,22 +1661,22 @@ Mat bilateral_convolve(const Mat& input_image, const Mat& gaussian_kernel, float
        for(int i = offset; i < padded_image.cols - offset; i++)
        {
 	   
-           int pixel_intensity = padded_image.at<uchar>(j,i);
+           int pixel_intensity = padded_image.at< uchar >(j,i);
  	   cumulative_weight = 0.0;
 	   value = 0.0;
 	   for(int m = 0; m < kernel_size ; m++)
 		for(int n = 0; n < kernel_size; n++)
 		{
-		    neighboring_pixel_intensity = padded_image.at<uchar>(j+m-offset,i+n-offset);
+		    neighboring_pixel_intensity = padded_image.at< uchar >(j+m-offset,i+n-offset);
 		    range_weight = (float) exp(-1.0* ( pow(pixel_intensity - neighboring_pixel_intensity,2) ) / ( 2.0 * pow(sigma_r,2) ) );
-		    weight = gaussian_kernel.at<float>(m,n) * range_weight ;
+		    weight = gaussian_kernel.at< float >(m,n) * range_weight ;
 		    value += neighboring_pixel_intensity*weight;
 		    cumulative_weight += weight ;
 		    //std::cout<<flipped_kernel.at<double>(m,n)<<std::endl;
 		}
 
 	   // Normalize the value
-	   convolved_image.at<uchar>(j,i)  = (int) (value/cumulative_weight);	 
+	   convolved_image.at< uchar >(j,i)  = (int) (value/cumulative_weight);	 
        }
 
   Mat depadded_image = image_depadding(convolved_image, offset);
@@ -1670,7 +1703,7 @@ Mat bilateral_filter(const Mat& input_image, int kernel_size, float sigma_g, flo
    for(int j = 0; j < kernel_size ; j++)
        for(int i = 0; i < kernel_size; i++)
        {
-	    kernel.at<float>(j,i) = (float) exp(-1.0* ( pow(i+1-(k+1),2) + pow(j+1-(k+1),2) ) / ( 2.0 * pow(sigma_g,2) ) ) ; // ( 1.0 /( 2.0*PI*pow(sigma_g,2) ) ) *
+	    kernel.at< float >(j,i) = (float) exp(-1.0* ( pow(i+1-(k+1),2) + pow(j+1-(k+1),2) ) / ( 2.0 * pow(sigma_g,2) ) ) ; // ( 1.0 /( 2.0*PI*pow(sigma_g,2) ) ) *
        }
 
    Mat filtered_image = bilateral_convolve(input_image, kernel, sigma_r);
@@ -1821,7 +1854,7 @@ Mat image_padding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows ; j++)
         for(int i = 0; i < input_image.cols; i++)
         {
-	    padded_image.at<uchar>(j+offset,i+offset) = input_image.at<uchar>(j,i);
+	    padded_image.at< uchar >(j+offset,i+offset) = input_image.at< uchar >(j,i);
         }
 
     return padded_image;
@@ -1836,7 +1869,7 @@ Mat image_depadding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows-2*offset ; j++)
         for(int i = 0; i < input_image.cols-2*offset; i++)
         {
-	    depadded_image.at<uchar>(j,i) = input_image.at<uchar>(j+offset,i+offset);
+	    depadded_image.at< uchar >(j,i) = input_image.at< uchar >(j+offset,i+offset);
         }
 
     return depadded_image;
@@ -1876,17 +1909,17 @@ Mat morphological_filter(const Mat& input_image, int kernel_size,std::string typ
 		for(int n = 0; n < kernel_size; n++)
 		{
 		
-		    neighborhood[k] = padded_image.at<uchar>(j+m-offset,i+n-offset) ;
+		    neighborhood[k] = padded_image.at< uchar >(j+m-offset,i+n-offset) ;
 		    k++;
 		}
 
 	    merge_sort(neighborhood,0,size-1);
 
 	   if(type == "erosion")
-		filtered_image.at<uchar>(j,i)  = neighborhood[0]; 
+		filtered_image.at< uchar >(j,i)  = neighborhood[0]; 
 	   
 	   else if(type == "dilation")
-		filtered_image.at<uchar>(j,i)  = neighborhood[k-1]; 
+		filtered_image.at< uchar >(j,i)  = neighborhood[k-1]; 
        }
 
   Mat depadded_image = image_depadding(filtered_image, offset);
@@ -2133,7 +2166,7 @@ Mat image_padding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows ; j++)
         for(int i = 0; i < input_image.cols; i++)
         {
-	    padded_image.at<float>(j+offset,i+offset) = input_image.at<uchar>(j,i);
+	    padded_image.at< float >(j+offset,i+offset) = input_image.at< uchar >(j,i);
         }
 
     return padded_image;
@@ -2146,7 +2179,7 @@ Mat image_depadding(const Mat& input_image, int offset)
    for(int j = 0; j < input_image.rows-2*offset ; j++)
         for(int i = 0; i < input_image.cols-2*offset; i++)
         {
-	    depadded_image.at<float>(j,i) = input_image.at<float>(j+offset,i+offset);
+	    depadded_image.at< float >(j,i) = input_image.at< float >(j+offset,i+offset);
         }
 
     return depadded_image;
@@ -2175,7 +2208,7 @@ Mat convolve(const Mat& input_image, const Mat& kernel)
    for(int m = 0; m < kernel_size ; m++)
 	for(int n = 0; n < kernel_size; n++)
 	{
-		flipped_kernel.at<float>(m,n) = kernel.at<float>(kernel_size-m-1,kernel_size-n-1);
+		flipped_kernel.at< float >(m,n) = kernel.at< float >(kernel_size-m-1,kernel_size-n-1);
 	}
 
   Mat convolved_image = Mat(padded_image.rows, padded_image.cols, CV_32F, 0.0);	
@@ -2189,11 +2222,11 @@ Mat convolve(const Mat& input_image, const Mat& kernel)
 		for(int n = 0; n < kernel_size; n++)
 		{
 
-		    value += (padded_image.at<float>(j+m-offset,i+n-offset))*flipped_kernel.at<float>(m,n);
+		    value += (padded_image.at< float >(j+m-offset,i+n-offset))*flipped_kernel.at< float >(m,n);
 
 		}
 
-	   convolved_image.at<float>(j,i)  = value;
+	   convolved_image.at< float >(j,i)  = value;
 	   
 	   value = 0;	 
        }
@@ -2212,7 +2245,7 @@ Mat get_image_gradient(const Mat& input_image, const Mat& horizontal_image, cons
     for(int j = 0; j < input_image.rows ; j++)
        for(int i = 0; i < input_image.cols; i++)
        {
-	    filtered_image.at<uchar>(j,i) = (( sqrt( pow(horizontal_image.at<float>(j,i),2) + pow(vertical_image.at<float>(j,i),2)))) ;
+	    filtered_image.at< uchar >(j,i) = (( sqrt( pow(horizontal_image.at< float >(j,i),2) + pow(vertical_image.at< float >(j,i),2)))) ;
        }
 
    return filtered_image;
@@ -2227,7 +2260,7 @@ Mat get_image_gradient_direction(const Mat& input_image, const Mat& horizontal_i
    for(int j = 0; j < input_image.rows ; j++)
        for(int i = 0; i < input_image.cols; i++)
        {
-	    filtered_image.at<float>(j,i) =(float)(atan2( vertical_image.at<float>(j,i), horizontal_image.at<float>(j,i))*180/PI);
+	    filtered_image.at< float >(j,i) =(float)(atan2( vertical_image.at< float >(j,i), horizontal_image.at< float >(j,i))*180/PI);
        }
  
    return filtered_image;
@@ -2242,11 +2275,11 @@ void threshold_image(const Mat& input_image, Mat& thresholded_image)
 	for(int i =0; i < input_image.cols; i++)
 	{
 
-		if (input_image.at<uchar>(j,i) >= THRESHOLD)
-			thresholded_image.at<uchar>(j,i) = 255;
+		if (input_image.at< uchar >(j,i) >= THRESHOLD)
+			thresholded_image.at< uchar >(j,i) = 255;
 
 		else
-			thresholded_image.at<uchar>(j,i) = 0;
+			thresholded_image.at< uchar >(j,i) = 0;
 	}
 
 }
@@ -2258,13 +2291,13 @@ Mat non_maximum_suppression(const Mat& image_gradient,const Mat& gradient_direct
    for(int j = 1; j < image_gradient.rows-1; j++)
 	for(int i =1; i < image_gradient.cols-1; i++)
 	{
-		float angle = gradient_direction.at<float>(j,i);
+		float angle = gradient_direction.at< float >(j,i);
 		
 		float top_elements[2];
 		float bottom_elements[2];
 		float ratio;
 
-		float current_gradient = image_gradient.at<uchar>(j,i) ;
+		float current_gradient = image_gradient.at< uchar >(j,i) ;
 
 		float bottom_interpolation,top_interpolation;
 		
@@ -2273,13 +2306,13 @@ Mat non_maximum_suppression(const Mat& image_gradient,const Mat& gradient_direct
 
 			if( (angle >= 0 && angle <= 45) || (angle < -135 && angle >= -180))
 				{
-				  bottom_elements[0] = image_gradient.at<uchar>(j,i+1);
-				  bottom_elements[1] = image_gradient.at<uchar>(j+1,i+1);
+				  bottom_elements[0] = image_gradient.at< uchar >(j,i+1);
+				  bottom_elements[1] = image_gradient.at< uchar >(j+1,i+1);
 
-				  top_elements[0] = image_gradient.at<uchar>(j,i-1);
-				  top_elements[1] = image_gradient.at<uchar>(j-1,i-1);
+				  top_elements[0] = image_gradient.at< uchar >(j,i-1);
+				  top_elements[1] = image_gradient.at< uchar >(j-1,i-1);
 			
-				  ratio = abs(vertical_image.at<float>(j,i)/current_gradient);
+				  ratio = abs(vertical_image.at< float >(j,i)/current_gradient);
 
 				  bottom_interpolation = (bottom_elements[1] - bottom_elements[0])*ratio +bottom_elements[0];
 				  top_interpolation = (top_elements[1] - top_elements[0])*ratio +top_elements[0];			
@@ -2288,20 +2321,20 @@ Mat non_maximum_suppression(const Mat& image_gradient,const Mat& gradient_direct
 				if(current_gradient < bottom_interpolation ||
 				   current_gradient < top_interpolation )
 
-					{nms_image.at<uchar>(j,i) = 0;}
+					{nms_image.at< uchar >(j,i) = 0;}
 				}
 
 			else if( (angle > 45 && angle <= 90) || (angle < -90 && angle >= -135))
 
 				{
-				  bottom_elements[0] = image_gradient.at<uchar>(j+1,i);
-				  bottom_elements[1] = image_gradient.at<uchar>(j+1,i+1);
+				  bottom_elements[0] = image_gradient.at< uchar >(j+1,i);
+				  bottom_elements[1] = image_gradient.at< uchar >(j+1,i+1);
 
-				  top_elements[0] = image_gradient.at<uchar>(j-1,i);
-				  top_elements[1] = image_gradient.at<uchar>(j-1,i-1);
+				  top_elements[0] = image_gradient.at< uchar >(j-1,i);
+				  top_elements[1] = image_gradient.at< uchar >(j-1,i-1);
 
 				
-				  ratio = abs(horizontal_image.at<float>(j,i)/current_gradient);
+				  ratio = abs(horizontal_image.at< float >(j,i)/current_gradient);
 
 				  bottom_interpolation = (bottom_elements[1] - bottom_elements[0])*ratio +bottom_elements[0];
 				  top_interpolation = (top_elements[1] - top_elements[0])*ratio +top_elements[0];			
@@ -2310,20 +2343,20 @@ Mat non_maximum_suppression(const Mat& image_gradient,const Mat& gradient_direct
 				if(current_gradient < bottom_interpolation ||
 				   current_gradient < top_interpolation )
 
-					{nms_image.at<uchar>(j,i) = 0;	}
+					{nms_image.at< uchar >(j,i) = 0;	}
 				}
 
 
 			else if( (angle > 90 && angle <= 135) || (angle < -45 && angle >= -90))
 				{
-				  bottom_elements[0] = image_gradient.at<uchar>(j+1,i);
-				  bottom_elements[1] = image_gradient.at<uchar>(j+1,i-1);
+				  bottom_elements[0] = image_gradient.at< uchar >(j+1,i);
+				  bottom_elements[1] = image_gradient.at< uchar >(j+1,i-1);
 
-				  top_elements[0] = image_gradient.at<uchar>(j-1,i);
-				  top_elements[1] = image_gradient.at<uchar>(j-1,i+1);
+				  top_elements[0] = image_gradient.at< uchar >(j-1,i);
+				  top_elements[1] = image_gradient.at< uchar >(j-1,i+1);
 
 				
-				  ratio = abs(horizontal_image.at<float>(j,i)/current_gradient);
+				  ratio = abs(horizontal_image.at< float >(j,i)/current_gradient);
 
 				  bottom_interpolation = (bottom_elements[1] - bottom_elements[0])*ratio +bottom_elements[0];
 				  top_interpolation = (top_elements[1] - top_elements[0])*ratio +top_elements[0];			
@@ -2332,20 +2365,20 @@ Mat non_maximum_suppression(const Mat& image_gradient,const Mat& gradient_direct
 				if(current_gradient < bottom_interpolation ||
 				   current_gradient < top_interpolation )
 
-					{nms_image.at<uchar>(j,i) = 0;	}
+					{nms_image.at< uchar >(j,i) = 0;	}
 				}
 
 			else if( (angle > 135 && angle <= 180) || (angle < 0 && angle >= -45))
 
 				{
-				  bottom_elements[0] = image_gradient.at<uchar>(j,i-1);
-				  bottom_elements[1] = image_gradient.at<uchar>(j+1,i-1);
+				  bottom_elements[0] = image_gradient.at< uchar >(j,i-1);
+				  bottom_elements[1] = image_gradient.at< uchar >(j+1,i-1);
 
-				  top_elements[0] = image_gradient.at<uchar>(j,i+1);
-				  top_elements[1] = image_gradient.at<uchar>(j-1,i+1);
+				  top_elements[0] = image_gradient.at< uchar >(j,i+1);
+				  top_elements[1] = image_gradient.at< uchar >(j-1,i+1);
 
 				
-				  ratio = abs(horizontal_image.at<float>(j,i)/current_gradient);
+				  ratio = abs(horizontal_image.at< float >(j,i)/current_gradient);
 
 				  bottom_interpolation = (bottom_elements[1] - bottom_elements[0])*ratio +bottom_elements[0];
 				  top_interpolation = (top_elements[1] - top_elements[0])*ratio +top_elements[0];			
@@ -2354,7 +2387,7 @@ Mat non_maximum_suppression(const Mat& image_gradient,const Mat& gradient_direct
 				if(current_gradient < bottom_interpolation ||
 				   current_gradient < top_interpolation )
 
-					{nms_image.at<uchar>(j,i) = 0;		}
+					{nms_image.at< uchar >(j,i) = 0;		}
 				}
 
 
@@ -2367,31 +2400,31 @@ Mat non_maximum_suppression(const Mat& image_gradient,const Mat& gradient_direct
 		
 			if( (angle >= -22.5 && angle <= 22.5) || (angle < -157.5 && angle >= -180))
 
-				if(image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j,i+1) ||
-				   image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j,i-1) )
+				if(image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j,i+1) ||
+				   image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j,i-1) )
 
-					{nms_image.at<uchar>(j,i) = 0;		}
+					{nms_image.at< uchar >(j,i) = 0;		}
 
 			else if( (angle >= 22.5 && angle <= 67.5) || (angle < -112.5 && angle >= -157.5))
 
-				if(image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j+1,i+1) ||
-				   image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j-1,i-1) )
+				if(image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j+1,i+1) ||
+				   image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j-1,i-1) )
 
-					{nms_image.at<uchar>(j,i) = 0;		}
+					{nms_image.at< uchar >(j,i) = 0;		}
 
 			else if( (angle >= 67.5 && angle <= 112.5) || (angle < -67.5 && angle >= -112.5))
 
-				if(image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j+1,i) ||
-				   image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j-1,i) )
+				if(image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j+1,i) ||
+				   image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j-1,i) )
 
-					{nms_image.at<uchar>(j,i) = 0;		}
+					{nms_image.at< uchar >(j,i) = 0;		}
 
 			else if( (angle >= 112.5 && angle <= 157.5) || (angle < -22.5 && angle >= -67.5))
 
-				if(image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j+1,i-1) ||
-				   image_gradient.at<uchar>(j,i) < image_gradient.at<uchar>(j-1,i+1) )
+				if(image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j+1,i-1) ||
+				   image_gradient.at< uchar >(j,i) < image_gradient.at< uchar >(j-1,i+1) )
 
-					{nms_image.at<uchar>(j,i) = 0;		}
+					{nms_image.at< uchar >(j,i) = 0;		}
 
 			
 
@@ -2433,50 +2466,50 @@ Mat hysterisis(const Mat& input_image, int max_threshold, int min_threshold)
    for(int j = 1; j < input_image.rows-1; j++)
 	for(int i =1; i < input_image.cols-1; i++)
 	{
-		if (input_image.at<uchar>(j,i) >= max_threshold)
-			edge_strength_image.at<uchar>(j,i) = STRONG_EDGE;
+		if (input_image.at< uchar >(j,i) >= max_threshold)
+			edge_strength_image.at< uchar >(j,i) = STRONG_EDGE;
 
 
-		else if (input_image.at<uchar>(j,i) > min_threshold && input_image.at<uchar>(j,i) < max_threshold)
-			edge_strength_image.at<uchar>(j,i) = WEAK_EDGE ;		
+		else if (input_image.at< uchar >(j,i) > min_threshold && input_image.at< uchar >(j,i) < max_threshold)
+			edge_strength_image.at< uchar >(j,i) = WEAK_EDGE ;		
 
 
 		else
-			edge_strength_image.at<uchar>(j,i) = NOT_EDGE;
+			edge_strength_image.at< uchar >(j,i) = NOT_EDGE;
 
 	}
 
    for(int j = 1; j < input_image.rows-1; j++)
 	for(int i =1; i < input_image.cols-1; i++)
 	{
-		if (edge_strength_image.at<uchar>(j,i) == WEAK_EDGE)
+		if (edge_strength_image.at< uchar >(j,i) == WEAK_EDGE)
 		    {
 			k = 0;
 			
 			for(int m = -1; m < 2 ; m++)
 			    for(int n = -1; n < 2; n++)
 			    {		
-				neighborhood[k] = edge_strength_image.at<uchar>(j+m,i+n) ;
+				neighborhood[k] = edge_strength_image.at< uchar >(j+m,i+n) ;
 				k++;
 			    }
 
 			if( check_for_connected_strong_edges( neighborhood, 9) )
 			{
-				double_thresholded_image.at<uchar>(j,i) = 255 ;
-				edge_strength_image.at<uchar>(j,i) = STRONG_EDGE;
+				double_thresholded_image.at< uchar >(j,i) = 255 ;
+				edge_strength_image.at< uchar >(j,i) = STRONG_EDGE;
 			}
 			else
 			{
-				double_thresholded_image.at<uchar>(j,i) = 0 ;
-				edge_strength_image.at<uchar>(j,i) = WEAK_EDGE;
+				double_thresholded_image.at< uchar >(j,i) = 0 ;
+				edge_strength_image.at< uchar >(j,i) = WEAK_EDGE;
 			}
 		    }
 
-		else if (edge_strength_image.at<uchar>(j,i) == STRONG_EDGE)
-			double_thresholded_image.at<uchar>(j,i) = 255 ; 
+		else if (edge_strength_image.at< uchar >(j,i) == STRONG_EDGE)
+			double_thresholded_image.at< uchar >(j,i) = 255 ; 
 
 		else
-			double_thresholded_image.at<uchar>(j,i) = 0 ;
+			double_thresholded_image.at< uchar >(j,i) = 0 ;
 	}
 	
    return double_thresholded_image;
@@ -2491,29 +2524,29 @@ void sobel_filter(const Mat& input_image, Mat& image_gradient, Mat& image_gradie
    Mat vertical_kernel = Mat(3, 3, CV_32F, 0.0);
    Mat nms_image, double_thresholded_image;
 
-   horizontal_kernel.at<float>(0,0) = 1 ;
-   horizontal_kernel.at<float>(0,1) = 0 ;
-   horizontal_kernel.at<float>(0,2) = -1 ;
+   horizontal_kernel.at< float >(0,0) = 1 ;
+   horizontal_kernel.at< float >(0,1) = 0 ;
+   horizontal_kernel.at< float >(0,2) = -1 ;
 
-   horizontal_kernel.at<float>(1,0) = 2 ;
-   horizontal_kernel.at<float>(1,1) = 0 ;
-   horizontal_kernel.at<float>(1,2) = -2 ;
+   horizontal_kernel.at< float >(1,0) = 2 ;
+   horizontal_kernel.at< float >(1,1) = 0 ;
+   horizontal_kernel.at< float >(1,2) = -2 ;
 
-   horizontal_kernel.at<float>(2,0) = 1 ;
-   horizontal_kernel.at<float>(2,1) = 0 ;
-   horizontal_kernel.at<float>(2,2) = -1 ;
+   horizontal_kernel.at< float >(2,0) = 1 ;
+   horizontal_kernel.at< float >(2,1) = 0 ;
+   horizontal_kernel.at< float >(2,2) = -1 ;
 
-   vertical_kernel.at<float>(0,0) = 1 ;
-   vertical_kernel.at<float>(0,1) = 2 ;
-   vertical_kernel.at<float>(0,2) = 1 ;
+   vertical_kernel.at< float >(0,0) = 1 ;
+   vertical_kernel.at< float >(0,1) = 2 ;
+   vertical_kernel.at< float >(0,2) = 1 ;
 
-   vertical_kernel.at<float>(1,0) = 0 ;
-   vertical_kernel.at<float>(1,1) = 0 ;
-   vertical_kernel.at<float>(1,2) = 0 ;
+   vertical_kernel.at< float >(1,0) = 0 ;
+   vertical_kernel.at< float >(1,1) = 0 ;
+   vertical_kernel.at< float >(1,2) = 0 ;
 
-   vertical_kernel.at<float>(2,0) = -1 ;
-   vertical_kernel.at<float>(2,1) = -2 ;
-   vertical_kernel.at<float>(2,2) = -1 ;
+   vertical_kernel.at< float >(2,0) = -1 ;
+   vertical_kernel.at< float >(2,1) = -2 ;
+   vertical_kernel.at< float >(2,2) = -1 ;
 
    horizontal_image = convolve(input_image, horizontal_kernel); 
    vertical_image = convolve(input_image, vertical_kernel); 
@@ -2763,7 +2796,7 @@ Mat pad_kernel(cv::Size size,const Mat& kernel, int kernel_size)
        for(int i = 0; i < kernel_size; i++)
        {
 	
-		padded_kernel.at<float>(j,i) = kernel.at<float>(j,i);
+		padded_kernel.at< float >(j,i) = kernel.at< float >(j,i);
 
 	}
 
@@ -2792,15 +2825,15 @@ Mat get_gaussian_blur_kernel(int kernel_size, float sigma)
    for(int j = 0; j < kernel_size ; j++)
        for(int i = 0; i < kernel_size; i++)
        {
-	    kernel.at<float>(j,i) = (float)( 1.0 /( 2.0*PI*pow(sigma,2) ) ) * exp(-1.0* ( pow(i+1-(k+1),2) + pow(j+1-(k+1),2) ) / ( 2.0 * pow(sigma,2) ) ) ;
-	    value += kernel.at<float>(j,i);
+	    kernel.at< float >(j,i) = (float)( 1.0 /( 2.0*PI*pow(sigma,2) ) ) * exp(-1.0* ( pow(i+1-(k+1),2) + pow(j+1-(k+1),2) ) / ( 2.0 * pow(sigma,2) ) ) ;
+	    value += kernel.at< float >(j,i);
        }
 
  // Normalize kernel , so that the sum of all elements in the kernel is 1
    for(int j = 0; j < kernel_size ; j++)
        for(int i = 0; i < kernel_size; i++)
        {
-	    kernel.at<float>(j,i) = kernel.at<float>(j,i)/value ;
+	    kernel.at< float >(j,i) = kernel.at< float >(j,i)/value ;
        }
 
    return kernel;
@@ -2814,7 +2847,7 @@ Mat get_motion_blur_kernel(int kernel_size)
 
        for(int i = 0; i < kernel_size; i++)
        {
-	    kernel.at<float>(j,i) = 1.0/kernel_size ;
+	    kernel.at< float >(j,i) = 1.0/kernel_size ;
        }
 
        return kernel;
@@ -2825,7 +2858,7 @@ Mat fourier_transform(const Mat& padded_image)
 	Mat image;
 	padded_image.convertTo(image,CV_32F);
 	//Real part and imaginary part
-	Mat images[] = {Mat_<float>(image), Mat::zeros(image.size(), CV_32F)};
+	Mat images[] = {Mat_< float >(image), Mat::zeros(image.size(), CV_32F)};
 	Mat complex_image;
 	merge(images, 2, complex_image);         
 	dft(complex_image,complex_image);
@@ -2879,11 +2912,11 @@ Mat wiener_filter(const Mat& noisy_image, const Mat& signal_spectrum, Mat kernel
    for(int j = 0; j < noisy_image.rows ; j++)
        for(int i = 0; i < noisy_image.cols; i++)
        {
-	    if( kernel_spectrum.at<float>(j,i) > THRESHOLD)
-	    	weight.at<float>(j,i) = ((kernel_spectrum_squared.at<float>(j,i))/(kernel_spectrum_squared.at<float>(j,i) + inv_snr.at<float>(j,i)))/kernel_spectrum.at<float>(j,i) ;
+	    if( kernel_spectrum.at< float >(j,i) > THRESHOLD)
+	    	weight.at< float >(j,i) = ((kernel_spectrum_squared.at< float >(j,i))/(kernel_spectrum_squared.at< float >(j,i) + inv_snr.at< float >(j,i)))/kernel_spectrum.at< float >(j,i) ;
 	
 	    else
-	    	weight.at<float>(j,i) = 0.0;
+	    	weight.at< float >(j,i) = 0.0;
        }
 
    multiply(images[0],weight,images[0]);
@@ -2941,16 +2974,16 @@ Mat inverse_filter(const Mat& noisy_image, Mat kernel, int kernel_size, bool pse
        {
 	    if (pseudo_inverse)
 	    {
-		    if( kernel_spectrum.at<float>(j,i) > THRESHOLD)
-		    	weight.at<float>(j,i) = (1/kernel_spectrum.at<float>(j,i)) ;
+		    if( kernel_spectrum.at< float >(j,i) > THRESHOLD)
+		    	weight.at< float >(j,i) = (1/kernel_spectrum.at< float >(j,i)) ;
 	
 		    else
-		    	weight.at<float>(j,i) = 0.0;
+		    	weight.at< float >(j,i) = 0.0;
 	    }
 
 	    else
 	    {
-		    weight.at<float>(j,i) = (1/kernel_spectrum.at<float>(j,i)) ;
+		    weight.at< float >(j,i) = (1/kernel_spectrum.at< float >(j,i)) ;
 
 	    }
 
@@ -3527,18 +3560,573 @@ figure;
 imshow(OriginalImage);
 
                             
-</pre></h3>
+</code></pre></h3>
 </p>
                             <ul class="list-inline">
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div>                
     </section>  
     
+       
+           <section id="week9" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">WEEK 9</h2>
+                    <h3 class="section-subheading text-muted">To view the implementation,&nbsp Click <a href="https://github.com/lkumar93/Image-Processing/tree/master/experiments/week9/">here</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <div align="justify">
+                         
+							
+                            <h2>Adaptive Thresholding</h2>
+                            
+                            <div style="margin-bottom:25px"></div>
+                            <p>Adaptive Thresholding is a data dependent thresholding technique, while global thresholding is a data independent thresholding technique. The fundamental principle of Adaptive Thresholding is that the region of interest can be segmented out by using the blurred version of an image minus a constant as the threshold. Different types of filters like Mean filters, Gaussian filter , Median filter can be used to blur the image. The results of various filters with the same constant and window size are seen below. It can be found that the globally thresholded image suffers due to illumination gradient as a result of which some numbers disappear and the adaptively thresholded images gives out a much better result. This would be really useful for text segmentation. </p>
+                            <p>
+                            <div style="margin-bottom:50px"></div>
+                            <h3>Results</h3>
+                            <div style="margin-bottom:25px"></div>
+                            <h4>Input Image
+                             <div style="margin-bottom:25px"></div>
+                            <img src="img/week9/adaptive_threshold/article.png" alt=""> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Global Thresholded Image
+                             <div style="margin-bottom:25px"></div>
+                            <img src="img/week9/adaptive_threshold/global_thresholded_image.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div> 
+                            <h4>Adaptively Thresholded Image with Mean Filter
+                              <div style="margin-bottom:25px"></div>
+                            <img src="img/week9/adaptive_threshold/mean_thresholded_image.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div> 
+                            <h4>Adaptively Thresholded Image with Median Filter
+                              <div style="margin-bottom:25px"></div>
+                            <img src="img/week9/adaptive_threshold/median_thresholded_image.jpg" alt=""> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Adaptively Thresholded Image with Gaussian Filter
+                              <div style="margin-bottom:25px"></div>
+                            <img src="img/week9/adaptive_threshold/gaussian_thresholded_image.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div> 
+							</div>
+
+                           	<div style="margin-bottom:50px"></div>
+                           	 <h3>Code
+                            <pre><code class="language-c++">
+                            
+                            #include <iostream>
+#include "opencv2/opencv.hpp"
+
+#define GAUSSIAN_FILTER 0
+#define MEAN_FILTER 1
+#define MEDIAN_FILTER 2
+
+using namespace cv;
+using namespace std;
+
+void threshold_image(const Mat& input_image, Mat& thresholded_image, float threshold, bool inverse=false, bool adaptive=false, int filter_type = GAUSSIAN_FILTER, int size_k = 11)
+{
+   thresholded_image = input_image.clone();
+   int image_type = input_image.type();
+   thresholded_image.convertTo(thresholded_image,CV_8UC1);
+   Mat blurred_image;
+
+   if(filter_type == MEAN_FILTER)
+	blur(thresholded_image, blurred_image, Size(size_k,size_k), Point(-1,-1));
+
+   else if(filter_type == GAUSSIAN_FILTER)
+ 	GaussianBlur( thresholded_image,blurred_image, Size(size_k,size_k ), 4, 4);
+
+   else if(filter_type == MEDIAN_FILTER)
+ 	medianBlur( thresholded_image,blurred_image, size_k);
+
+   if(blurred_image.type() != CV_8UC1)
+   	blurred_image.convertTo(blurred_image,image_type);
+
+   float c = threshold;
+
+   for(int j = 1; j < input_image.rows-1; j++)
+	for(int i =1; i < input_image.cols-1; i++)
+	{
+		if(image_type == CV_8UC1)
+		{
+			if(adaptive)
+			{
+				threshold =(int) saturate_cast< uchar >(blurred_image.at< uchar >(j,i) - c);				
+			}
+
+			if (input_image.at< uchar >(j,i) >= threshold)
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 0;
+				else
+					thresholded_image.at< uchar >(j,i) = 255;
+			else
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 255;
+				else
+					thresholded_image.at< uchar >(j,i) = 0;
+		}
+		else if(image_type == CV_32F)
+		{
+			if(adaptive)
+			{
+				threshold = (blurred_image.at< float >(j,i) - c);
+			}
+
+			if (input_image.at< float >(j,i) >= threshold)
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 0;
+				else
+					thresholded_image.at< uchar >(j,i) = 255;
+			else
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 255;
+				else
+					thresholded_image.at< uchar >(j,i) = 0;
+
+		}
+
+
+	}
+
+}
+
+int main(int argc, char** argv )
+{
+    Mat grayscale_image1;
+
+    Mat image1 = imread( "../images/article.png", 1 );
+
+  if ( !image1.data)
+    {
+        printf("No image data \n");
+        return -1;
+    }
+
+    cvtColor( image1, grayscale_image1, CV_BGR2GRAY );
+
+    GaussianBlur( grayscale_image1,grayscale_image1, Size( 7, 7), 3, 3);
+
+
+    Mat mean_thresholded_image, gaussian_thresholded_image, median_thresholded_image, global_thresholded_image;
+
+    int kernel_size = 11;
+    int c = 1;
+
+    threshold_image(grayscale_image1, mean_thresholded_image, c, false, true, MEAN_FILTER, kernel_size);
+    threshold_image(grayscale_image1, gaussian_thresholded_image, c, false, true, GAUSSIAN_FILTER, kernel_size);
+    threshold_image(grayscale_image1, median_thresholded_image, c, false, true, MEDIAN_FILTER, kernel_size);
+    threshold_image(grayscale_image1, global_thresholded_image, 125, false, false);
+
+    namedWindow("Input Image 1", WINDOW_AUTOSIZE);
+    imshow("Input Image 1", grayscale_image1); 
+
+    namedWindow("Mean Thresholded Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/adaptive_threshold/mean_thresholded_image.jpg", mean_thresholded_image);
+    imshow("Mean Thresholded Image", mean_thresholded_image); 
+
+    namedWindow("Gaussian Thresholded Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/adaptive_threshold/gaussian_thresholded_image.jpg", gaussian_thresholded_image);
+    imshow("Gaussian Thresholded Image", gaussian_thresholded_image); 
+
+    namedWindow("Median Thresholded Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/adaptive_threshold/median_thresholded_image.jpg", median_thresholded_image);
+    imshow("Median Thresholded Image", median_thresholded_image); 
+
+    namedWindow("Global Thresholded Image", WINDOW_AUTOSIZE);
+    imwrite( "../results/adaptive_threshold/global_thresholded_image.jpg", global_thresholded_image);
+    imshow("Global Thresholded Image", global_thresholded_image); 
+
+    waitKey(0);
+
+    return 0;
+}
+
+
+</code></pre></h3>
+</p>
+                          	<br></br><br></br>
+                          	
+                          	   <h2>Harris Corner Detection</h2>
+                            <div style="margin-bottom:25px"></div>
+                            <p>Harris Corner Detection method estimates the location of corners based on the gradients at each pixel. It fundamentally relies on the property that corners have large gradients in both x and y direction. The algorithm proceeds by computing the x and y gradients of the image using operators like Sobel. Based on these gradients the Harris Matrix is computed as follows  <div style="margin-bottom:10px"></div>
+                            <img src="img/week9/harris_equation.jpg" alt=""><div style="margin-bottom:10px"> Then the harris response is obtained by using the equation R = Det(M) - k(Trace(M))^2 where k's best estimate by Harris was found to be 0.04. The response image is adaptively thresholded in order to obtain the corners. There might be a lot of estimated corners very close to each other , these group of corners are replaced by just one corner by doing non-maxima suppression. The results of Harris Corner Detection on a checkerboard and a picture of a house are seen below. </p>
+                            <p>
+                            <div style="margin-bottom:50px"></div>
+                            <h3>Results</h3>
+                            <div style="margin-bottom:25px"></div>
+                            <h4>Input Image 1
+                            <div style="margin-bottom:25px"></div>
+                            <img src="img/week9/harris_corner_detection/checkerboard.jpg" alt=""> </h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Corners of Image 1
+-                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week9/harris_corner_detection/corners_2.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Input image 2
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week9/harris_corner_detection/house.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                            <h4>Corners of Image 2
+                            <div style="margin-bottom:10px"></div>
+                            <img src="img/week9/harris_corner_detection/corners_1.jpg" alt=""></h4>
+                            <div style="margin-bottom:50px"></div>
+                         
+                            <h3>Code
+                            <div style="margin-bottom:5px"></div>
+                            <pre><code class="language-c++">
+                            
+#include "iostream"
+#include "opencv2/opencv.hpp"
+
+#define THRESHOLD 35000000000
+#define DISTANCE_THRESHOLD 8
+
+using namespace cv;
+using namespace std;
+
+struct IndexT
+{
+	int col;
+	int row;
+
+	float distance(int j, int i)
+	{
+		return sqrt(pow((row-j),2)+pow((col-i),2));
+	}
+};
+
+
+Mat image_padding(const Mat& input_image, int offset)
+{
+   Mat padded_image = Mat(input_image.rows+2*offset, input_image.cols+2*offset, CV_32F, 0.0);
+
+   for(int j = 0; j < input_image.rows ; j++)
+        for(int i = 0; i < input_image.cols; i++)
+        {
+	    padded_image.at< float >(j+offset,i+offset) = input_image.at< uchar >(j,i);
+        }
+
+    return padded_image;
+}
+
+Mat image_depadding(const Mat& input_image, int offset)
+{
+   Mat depadded_image = Mat(input_image.rows-2*offset, input_image.cols-2*offset, CV_32F, 0.0);
+
+   for(int j = 0; j < input_image.rows-2*offset ; j++)
+        for(int i = 0; i < input_image.cols-2*offset; i++)
+        {
+	    depadded_image.at< float >(j,i) = input_image.at< float >(j+offset,i+offset);
+        }
+
+    return depadded_image;
+}
+
+Mat convolve(const Mat& input_image, const Mat& kernel)
+{
+  
+   int kernel_size = kernel.rows;
+
+   int offset;
+
+   if(kernel_size % 2 != 0)
+   {
+	offset = (kernel_size+1)/2 - 1;
+   }
+   else
+   {
+	offset = (kernel_size)/2 - 1;
+   }
+
+  Mat padded_image = image_padding(input_image, offset);
+
+  Mat flipped_kernel = Mat(kernel.rows, kernel.cols, CV_32F, 0.0);
+
+   for(int m = 0; m < kernel_size ; m++)
+	for(int n = 0; n < kernel_size; n++)
+	{
+		flipped_kernel.at< float >(m,n) = kernel.at< float >(kernel_size-m-1,kernel_size-n-1);
+	}
+
+  Mat convolved_image = Mat(padded_image.rows, padded_image.cols, CV_32F, 0.0);	
+
+  float value = 0.0;
+  for(int j = offset; j < padded_image.rows - offset ; j++)
+       for(int i = offset; i < padded_image.cols - offset; i++)
+       {
+		  
+	   for(int m = 0; m < kernel_size ; m++)
+		for(int n = 0; n < kernel_size; n++)
+		{
+
+		    value += (padded_image.at< float >(j+m-offset,i+n-offset))*flipped_kernel.at< float >(m,n);
+
+		}
+
+	   convolved_image.at< float >(j,i)  = value;
+	   
+	   value = 0;	 
+       }
+
+  Mat depadded_image = image_depadding(convolved_image, offset);
+  
+  return depadded_image;
+}
+
+void adaptive_threshold(const Mat& input_image, Mat& thresholded_image, float c, bool inverse=false)
+{
+   thresholded_image = input_image.clone();
+   int image_type = input_image.type();
+
+   if(image_type != CV_8UC1)
+   	thresholded_image.convertTo(thresholded_image,CV_8UC1);
+
+   Mat blurred_image;
+
+   GaussianBlur( thresholded_image,blurred_image, Size( 5, 5 ), 1.4, 1.4);
+
+   if(blurred_image.type() != CV_8UC1)
+   	blurred_image.convertTo(blurred_image,image_type);
+
+   float threshold;
+
+   for(int j = 1; j < input_image.rows-1; j++)
+	for(int i =1; i < input_image.cols-1; i++)
+	{
+		if(image_type == CV_8UC1)
+		{
+			threshold =(int) saturate_cast< uchar >(blurred_image.at< uchar >(j,i) - c);
+	
+			if (input_image.at< uchar >(j,i) >= threshold)
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 0;
+				else
+					thresholded_image.at< uchar >(j,i) = 255;
+			else
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 255;
+				else
+					thresholded_image.at< uchar >(j,i) = 0;
+		}
+		else if(image_type == CV_32F)
+		{
+			threshold = (blurred_image.at< float >(j,i) - c);
+
+			if (input_image.at< float >(j,i) >= threshold)
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 0;
+				else
+					thresholded_image.at< uchar >(j,i) = 255;
+			else
+				if(inverse)
+					thresholded_image.at< uchar >(j,i) = 255;
+				else
+					thresholded_image.at< uchar >(j,i) = 0;
+
+		}
+
+
+	}
+
+}
+
+
+
+Mat harris_corner_detection(const Mat& input_image)
+{
+
+   Mat horizontal_kernel = Mat(3, 3, CV_32F, 0.0);
+   Mat vertical_kernel = Mat(3, 3, CV_32F, 0.0);
+   Mat image_gradient, image_gradient_direction,converted_image, nms_image, double_thresholded_image;
+
+   horizontal_kernel.at< float >(0,0) = 1.0/9.0 ;
+   horizontal_kernel.at< float >(0,1) = 0 ;
+   horizontal_kernel.at< float >(0,2) = -1.0/9.0 ;
+
+   horizontal_kernel.at< float >(1,0) = 2/9.0 ;
+   horizontal_kernel.at< float >(1,1) = 0 ;
+   horizontal_kernel.at< float >(1,2) = -2/9.0 ;
+
+   horizontal_kernel.at< float >(2,0) = 1/9.0 ;
+   horizontal_kernel.at< float >(2,1) = 0 ;
+   horizontal_kernel.at< float >(2,2) = -1/9.0 ;
+
+   vertical_kernel.at< float >(0,0) = 1/9.0 ;
+   vertical_kernel.at< float >(0,1) = 2/9.0 ;
+   vertical_kernel.at< float >(0,2) = 1/9.0 ;
+
+   vertical_kernel.at< float >(1,0) = 0 ;
+   vertical_kernel.at< float >(1,1) = 0 ;
+   vertical_kernel.at< float >(1,2) = 0 ;
+
+   vertical_kernel.at< float >(2,0) = -1/9.0 ;
+   vertical_kernel.at< float >(2,1) = -2/9.0 ;
+   vertical_kernel.at< float >(2,2) = -1/9.0 ;
+
+   Mat horizontal_image = convolve(input_image, horizontal_kernel); 
+   Mat vertical_image = convolve(input_image, vertical_kernel); 
+
+   Mat horizontal_image_squared = Mat(horizontal_image.rows, horizontal_image.cols, CV_32F, 0.0);
+   Mat vertical_image_squared  = Mat(horizontal_image.rows, horizontal_image.cols, CV_32F, 0.0);
+   Mat horizontal_vertical_image = Mat(horizontal_image.rows, horizontal_image.cols, CV_32F, 0.0);
+
+   Mat combined_image = Mat(horizontal_image.rows, horizontal_image.cols, CV_32F, 0.0);
+
+    for(int j = 0; j < horizontal_image.rows ; j++)
+       for(int i = 0; i < horizontal_image.cols ; i++)
+       {
+	   combined_image.at< float >(j,i) = horizontal_image.at< float >(j,i) + vertical_image.at< float >(j,i);
+	   horizontal_image_squared.at< float >(j,i) = pow( horizontal_image.at< float >(j,i), 2);
+	   vertical_image_squared.at< float >(j,i)  = pow( vertical_image.at< float >(j,i), 2);
+	   horizontal_vertical_image .at< float >(j,i)  = horizontal_image.at< float >(j,i)*vertical_image.at< float >(j,i) ;
+	   
+       }
+
+   GaussianBlur( horizontal_image_squared, horizontal_image_squared, Size(9,9), 1.4, 1.4, BORDER_DEFAULT );
+   GaussianBlur( vertical_image_squared, vertical_image_squared, Size(9,9), 1.4, 1.4, BORDER_DEFAULT );
+   GaussianBlur( horizontal_vertical_image, horizontal_vertical_image, Size(9,9), 1.4, 1.4, BORDER_DEFAULT );
+
+   Mat harris_response= Mat(horizontal_image.rows, horizontal_image.cols, CV_32F, 0.0);
+   Mat corners= Mat::zeros(horizontal_image.rows, horizontal_image.cols, CV_8UC1 );
+
+   float k = 0.04;
+
+   for(int j = 0; j < horizontal_image.rows ; j++)
+      for(int i = 0; i < horizontal_image.cols ; i++)
+      {
+	   //R = Det(H) - k(Trace(H))^2;
+   
+	   harris_response.at< float >(j,i) = horizontal_image_squared.at< float >(j,i)*vertical_image_squared.at< float >(j,i) -pow(horizontal_vertical_image.at< float >(j,i),2) 
+					    - k*(pow(horizontal_image_squared.at< float >(j,i)+vertical_image_squared.at< float >(j,i),2));
+		
+      }
+
+   Mat corners2 = Mat::zeros(horizontal_image.rows, horizontal_image.cols, CV_8UC1 );
+   
+   int size = 5;
+
+   int offset = (size+1)/2 - 1;
+
+    normalize(harris_response, harris_response, 1,0,NORM_MINMAX);
+    adaptive_threshold(harris_response, corners, -0.3);
+
+   if(corners.type() != CV_8UC1)
+   	corners.convertTo(corners,CV_8UC1);
+
+   std::vector<IndexT> corner_indices;
+
+   for(int j = 0; j < horizontal_image.rows ; j++)
+      for(int i = 0; i < horizontal_image.cols ; i++)
+      {
+	   IndexT current_index;
+           current_index.row = j;
+	   current_index.col = i;
+
+	   if( corners.at< uchar >(j,i)  > 200)
+		if(corner_indices.empty())
+			corner_indices.push_back(current_index);
+		else
+		{
+			 bool corner_neighbor = false;
+			 for (std::vector<IndexT>::iterator it = corner_indices.begin() ; it != corner_indices.end(); ++it)
+			 {
+				if(it->distance(j,i) < DISTANCE_THRESHOLD)
+					corner_neighbor = true;
+			 }	
+
+			 if(!corner_neighbor)
+				corner_indices.push_back(current_index);			
+		}			
+      }
+
     
 
-    <section id="project_progress" >
+    for (std::vector<IndexT>::iterator it = corner_indices.begin() ; it != corner_indices.end(); ++it)
+    {
+	corners2.at< uchar >(it->row,it->col) = 255;
+	
+    }	
+
+
+   Mat image_with_corners = input_image.clone();
+
+   int border_offset = 3;
+
+    for( int j = border_offset; j <  corners2.rows-border_offset ; j++ )
+     { for( int i = border_offset; i <  corners2.cols-border_offset; i++ )
+	  {
+	    if( (int)  corners2.at< uchar >(j,i) == 255 )
+	      {
+	       circle(  image_with_corners, Point( i, j ), 10,  Scalar(127), 2, 8, 0 );
+	      }
+	  }
+     }
+
+   return image_with_corners; 
+}
+
+
+int main(int argc, char** argv )
+{
+    Mat grayscale_image1, grayscale_image2;
+
+    Mat image1 = imread( "../images/house.jpg", 1 );
+    Mat image2 = imread( "../images/checkerboard.jpg", 1 );
+
+    if ( !image1.data || !image2.data )
+     {
+        printf("No image data \n");
+        return -1;
+     }
+
+    cvtColor( image1, grayscale_image1, CV_BGR2GRAY );
+    cvtColor( image2, grayscale_image2, CV_BGR2GRAY );
+
+    Mat corners1 = harris_corner_detection(grayscale_image1);
+
+    Mat corners2 = harris_corner_detection(grayscale_image2);
+
+    namedWindow("Input Image 1", WINDOW_AUTOSIZE);
+    imshow("Input Image 1", image1); 
+
+    namedWindow("Corner 1", WINDOW_AUTOSIZE);
+    imwrite( "../results/harris_corner_detection/corners_1.jpg", corners1);
+    imshow("Corner 1", corners1); 
+
+    namedWindow("Input Image 2", WINDOW_AUTOSIZE);
+    imshow("Input Image 2", image2); 
+
+    namedWindow("Corner 2", WINDOW_AUTOSIZE);
+    imwrite( "../results/harris_corner_detection/corners_2.jpg", corners2);
+    imshow("Corner 2", corners2); 
+	
+    waitKey(0);
+
+    return 0;
+}
+
+
+</code></pre></h3>
+                           
+                           
+                            <ul class="list-inline">
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        
+        
+    </section>   
+    
+        <section id="project_progress" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -3707,6 +4295,8 @@ imshow(OriginalImage);
         </div>
     </section>
     
+    
+    
     <section id="project_results" class="bg-light-gray">
         <div class="container">
                 <div class="row">
@@ -3822,66 +4412,66 @@ Mat perspective_transform(Point2f corner_points[], Point2f reference_points[])
 	Mat A = Mat::ones( 3, 3, CV_32F );
 	Mat B = Mat::ones( 3, 1, CV_32F );
 
-	A.at<float>(0,0) = corner_points[0].x;
-	A.at<float>(1,0) = corner_points[0].y;
+	A.at< float >(0,0) = corner_points[0].x;
+	A.at< float >(1,0) = corner_points[0].y;
 
-	A.at<float>(0,1) = corner_points[1].x;
-	A.at<float>(1,1) = corner_points[1].y;
+	A.at< float >(0,1) = corner_points[1].x;
+	A.at< float >(1,1) = corner_points[1].y;
 
-	A.at<float>(0,2) = corner_points[2].x;
-	A.at<float>(1,2) = corner_points[2].y;
+	A.at< float >(0,2) = corner_points[2].x;
+	A.at< float >(1,2) = corner_points[2].y;
 
-	B.at<float>(0,0) = corner_points[3].x;
-	B.at<float>(1,0) = corner_points[3].y;
+	B.at< float >(0,0) = corner_points[3].x;
+	B.at< float >(1,0) = corner_points[3].y;
 
 	Mat C = Mat::ones( 3, 1, CV_32F );
 	C = A.inv()*B;
 
 	Mat M = Mat::ones( 3, 3, CV_32F );
 
-	M.at<float>(0,0) = C.at<float>(0,0)*corner_points[0].x;
-	M.at<float>(1,0) =  C.at<float>(0,0)*corner_points[0].y;
-	M.at<float>(2,0) =  C.at<float>(0,0);
+	M.at< float >(0,0) = C.at< float >(0,0)*corner_points[0].x;
+	M.at< float >(1,0) =  C.at< float >(0,0)*corner_points[0].y;
+	M.at< float >(2,0) =  C.at< float >(0,0);
 
-	M.at<float>(0,1) =  C.at<float>(1,0)* corner_points[1].x;
-	M.at<float>(1,1) =  C.at<float>(1,0)*corner_points[1].y;
-	M.at<float>(2,1) =  C.at<float>(1,0);
+	M.at< float >(0,1) =  C.at< float >(1,0)* corner_points[1].x;
+	M.at< float >(1,1) =  C.at< float >(1,0)*corner_points[1].y;
+	M.at< float >(2,1) =  C.at< float >(1,0);
 
-	M.at<float>(0,2) =  C.at<float>(2,0)*corner_points[2].x;
-	M.at<float>(1,2) =  C.at<float>(2,0)*corner_points[2].y;
-	M.at<float>(2,2) =  C.at<float>(2,0);
+	M.at< float >(0,2) =  C.at< float >(2,0)*corner_points[2].x;
+	M.at< float >(1,2) =  C.at< float >(2,0)*corner_points[2].y;
+	M.at< float >(2,2) =  C.at< float >(2,0);
 
 	Mat D = Mat::ones( 3, 3, CV_32F );
 	Mat E = Mat::ones( 3, 1, CV_32F );
 
-	D.at<float>(0,0) = reference_points[0].x;
-	D.at<float>(1,0) = reference_points[0].y;
+	D.at< float >(0,0) = reference_points[0].x;
+	D.at< float >(1,0) = reference_points[0].y;
 
-	D.at<float>(0,1) = reference_points[1].x;
-	D.at<float>(1,1) = reference_points[1].y;
+	D.at< float >(0,1) = reference_points[1].x;
+	D.at< float >(1,1) = reference_points[1].y;
 
-	D.at<float>(0,2) = reference_points[2].x;
-	D.at<float>(1,2) = reference_points[2].y;
+	D.at< float >(0,2) = reference_points[2].x;
+	D.at< float >(1,2) = reference_points[2].y;
 
-	E.at<float>(0,0) = reference_points[3].x;
-	E.at<float>(1,0) = reference_points[3].y;
+	E.at< float >(0,0) = reference_points[3].x;
+	E.at< float >(1,0) = reference_points[3].y;
 
 	Mat F = Mat::ones( 3, 1, CV_32F );
 	F = D.inv()*E;
 
 	Mat N = Mat::ones( 3, 3	, CV_32F );
 
-	N.at<float>(0,0) = F.at<float>(0,0)*reference_points[0].x;
-	N.at<float>(1,0) = F.at<float>(0,0)*reference_points[0].y;
-	N.at<float>(2,0) = F.at<float>(0,0);
+	N.at< float >(0,0) = F.at< float >(0,0)*reference_points[0].x;
+	N.at< float >(1,0) = F.at< float >(0,0)*reference_points[0].y;
+	N.at< float >(2,0) = F.at< float >(0,0);
 
-	N.at<float>(0,1) = F.at<float>(1,0)*reference_points[1].x;
-	N.at<float>(1,1) = F.at<float>(1,0)*reference_points[1].y;
-	N.at<float>(2,1) = F.at<float>(1,0);
+	N.at< float >(0,1) = F.at< float >(1,0)*reference_points[1].x;
+	N.at< float >(1,1) = F.at< float >(1,0)*reference_points[1].y;
+	N.at< float >(2,1) = F.at< float >(1,0);
 
-	N.at<float>(0,2) = F.at<float>(2,0)*reference_points[2].x;
-	N.at<float>(1,2) = F.at<float>(2,0)*reference_points[2].y;
-	N.at<float>(2,2) = F.at<float>(2,0);
+	N.at< float >(0,2) = F.at< float >(2,0)*reference_points[2].x;
+	N.at< float >(1,2) = F.at< float >(2,0)*reference_points[2].y;
+	N.at< float >(2,2) = F.at< float >(2,0);
 
 
 	Mat perspective_transform= Mat::ones( 3, 3, CV_32F );
@@ -4032,16 +4622,16 @@ int main(int argc, char** argv )
 	   for( int j = 0; j <  grayscale_image.rows ; j++ )
    	      for( int i = 0; i <  grayscale_image.cols; i++ )
 		{
-			given_point.at<float>(0,0) = i;
-			given_point.at<float>(1,0) = j;
+			given_point.at< float >(0,0) = i;
+			given_point.at< float >(1,0) = j;
 
 			transformed_point = pt*given_point;
 
-			int x = cvFloor(transformed_point.at<float>(1,0)/transformed_point.at<float>(2,0));
-			int y = cvFloor(transformed_point.at<float>(0,0)/transformed_point.at<float>(2,0));
+			int x = cvFloor(transformed_point.at< float >(1,0)/transformed_point.at< float >(2,0));
+			int y = cvFloor(transformed_point.at< float >(0,0)/transformed_point.at< float >(2,0));
 
 			if(x >= 0 && x < height && y >=0 && y< width)
-				warped_image.at<uchar>(x,y) = grayscale_image.at<uchar>(j,i);
+				warped_image.at< uchar >(x,y) = grayscale_image.at< uchar >(j,i);
 
 		}
 
